@@ -1,21 +1,17 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-<<<<<<< Updated upstream
-import { useNavigate } from "react-router-dom";
-=======
 import { useNavigate} from "react-router-dom";
->>>>>>> Stashed changes
 import './home_.css';
 import '../common/CommonStyle.css';
 import { HomeIcon, FileText, Heart, Users } from 'lucide-react';
 import axios from 'axios';
 
 
-<<<<<<< Updated upstream
+
 function Home() {
-=======
-function Home(){
->>>>>>> Stashed changes
+
+//function Home(){
+
     // let userData = {
     //     nickname: "홍길동",
     //     profileImage: "/img/main-assets/default_profile.png",
@@ -103,8 +99,6 @@ function Home(){
 
     let location = useLocation();
     let page = location.pathname.split('/')[1];
-
-<<<<<<< Updated upstream
     async function getAccessToken() {
         try {
             let res = await axios.post('http://3.39.81.234:8080/api/auth/token', {
@@ -131,7 +125,7 @@ function Home(){
             setGroupData(res.data.topStudies);
         }
         catch (err) {
-=======
+
     async function getUserData(){
         try{
             let res = await axios.get('http://3.39.81.234:8080/api/home', {
@@ -141,13 +135,13 @@ function Home(){
             setGroupData(res.data.topStudies);
         }
         catch(err){
->>>>>>> Stashed changes
+
             console.log(err);
         }
     }
     // 서버랑 APi 연결해볼때 사용 할 것
     // 사용자 정보, 그룹 리스트 가져와야함.
-<<<<<<< Updated upstream
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -160,28 +154,23 @@ function Home(){
     }, []);
 
     return (
-=======
+
     
     useEffect(()=>{
         getUserData();
     }, []);
 
     return(
->>>>>>> Stashed changes
         <div className='home-background'>
             <div className='web-header'>
                 <button className='back-button' onClick={() => window.history.back()}>
                 </button>
-<<<<<<< Updated upstream
                 <img className='address-image' src="/img/main-assets/location.png" />
-=======
                 <img className='address-image' src ="/img/main-assets/location.png"/>
->>>>>>> Stashed changes
                 <h4 className='address-text'>{userData.province} {userData.district}</h4>
             </div>
 
             <div className='user-container'>
-<<<<<<< Updated upstream
                 <img className='user-image' src={userData.profileImageUrl} />
                 <h4 className='user-text--greeting'
                 >안녕하세요!</h4>
@@ -209,7 +198,6 @@ function Home(){
                         setSearch(e.target.value);
                         //이 데이터 서버로 넘기고 결과를 리스트로 받아야함.
                     }}
-=======
                 <img className='user-image' src ={userData.profileImage}/>
                 <h4 className='user-text--greeting'
                 >안녕하세요!</h4>
@@ -236,7 +224,6 @@ function Home(){
                     setSearch(e.target.value);
                     //이 데이터 서버로 넘기고 결과를 리스트로 받아야함.
                 }}
->>>>>>> Stashed changes
                 />
             </div>
 
@@ -246,9 +233,7 @@ function Home(){
 
             {/* 그룹 리스트 서버에서 가져와야함. */}
             {/* 신뢰점수 추가해야함 */}
-            {
-<<<<<<< Updated upstream
-                groupData.map((group, i) => (
+            { groupData.map((group, i) => (
                     //group -> 받아온 groupData의 각 그룹객체 하나하나
                     //onClick 해서 만약 가입 중인 스터디라면, 그룹 페이지로 이동,
                     // 가입 중이지 않으면 그룹 소개 페이지로 이동.
@@ -297,7 +282,6 @@ function Home(){
                                         : "/img/main-assets/empty_heart.png"} />
                         </button>
                     </div>
-=======
             groupData.map((group, i) => (
                 //group -> 받아온 groupData의 각 그룹객체 하나하나
                 <div className='active-group-container' key={group.id}>
@@ -344,85 +328,77 @@ function Home(){
                             : "/img/main-assets/empty_heart.png"}/>
                     </button>
                 </div>
->>>>>>> Stashed changes
                 ))
             }
             <div className="under-bar-container">
                 <button className={
                     page === 'home' ? 'under-bar-icon' : 'under-bar-icon-disabled'
                 }
-<<<<<<< Updated upstream
+
                     onClick={() => {
                         navigate('/home');
                     }}
                 >
                     <HomeIcon size={24} />
                     <h4>홈</h4>
-=======
+
                 onClick={()=>{
                     navigate('/home');
                 }}
-                >
+                
                         <HomeIcon size={24} />
                         <h4>홈</h4>
->>>>>>> Stashed changes
                 </button>
                 <button className={
                     page === 'mygroup' ? 'under-bar-icon' : 'under-bar-icon-disabled'
                 }
-<<<<<<< Updated upstream
                     onClick={() => {
                         navigate('/mygroup');
                     }}
                 >
                     <FileText size={24} />
                     <h4>내 그룹</h4>
-=======
                 onClick={()=>{
                     navigate('/mygroup');
                 }}
                 >
                         <FileText size={24} />
                         <h4>내 그룹</h4>
->>>>>>> Stashed changes
                 </button>
                 <button className={
                     page === 'bookmarked' ? 'under-bar-icon' : 'under-bar-icon-disabled'
                 }
-<<<<<<< Updated upstream
                     onClick={() => {
                         navigate('/bookmarked');
                     }}
                 >
                     <Heart size={24} />
                     <h4>찜 목록</h4>
-=======
+
                 onClick={()=>{
                     navigate('/bookmarked');
                 }}
-                >
+                
                         <Heart size={24} />
                         <h4>찜 목록</h4>
->>>>>>> Stashed changes
+
                 </button>
                 <button className={
                     page === 'profile' ? 'under-bar-icon' : 'under-bar-icon-disabled'
                 }
-<<<<<<< Updated upstream
                     onClick={() => {
                         navigate('/myprofile');
                     }}
                 >
                     <Users size={24} />
                     <h4>내 정보</h4>
-=======
+
                 onClick={()=>{
                     navigate('/myprofile');
                 }}
-                >
+                
                         <Users size={24} />
                         <h4>내 정보</h4>
->>>>>>> Stashed changes
                 </button>
             </div>
         </div>
